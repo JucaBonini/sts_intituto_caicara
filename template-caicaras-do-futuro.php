@@ -365,7 +365,7 @@ get_header(); ?>
                     <div class="p-4 border-b border-white/5 md:border-b-0">
                         <span class="text-white/40 font-bold block mb-2 uppercase tracking-[0.3em] text-[0.6rem]">Data</span>
                         <p class="text-3xl md:text-4xl font-extrabold text-white mb-1">08 de Maio</p>
-                        <p class="text-white/50 text-xs md:text-sm italic">Quarta-feira</p>
+                        <p class="text-white/50 text-xs md:text-sm italic">Sexta-feira</p>
                     </div>
 
                     <!-- Horário -->
@@ -379,7 +379,7 @@ get_header(); ?>
                     <div class="p-4">
                         <span class="text-white/40 font-bold block mb-2 uppercase tracking-[0.3em] text-[0.6rem]">Localização</span>
                         <p class="text-2xl md:text-3xl font-extrabold text-white mb-1">SEST SENAT</p>
-                        <p class="text-white/50 text-xs md:text-sm italic">Praça Adalberto Panzan, 151</p>
+                        <p class="text-white/50 text-xs md:text-sm italic">Praça Adalberto Panzan, 151 - Cidade Náutica III, São Vicente - SP</p>
                     </div>
 
                 </div>

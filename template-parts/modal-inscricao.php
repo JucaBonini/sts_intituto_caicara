@@ -13,7 +13,70 @@ $is_full = ($count >= $limit || $status === 'paused');
 $remaining = $limit - $count;
 ?>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
 <style>
+    /* ========== DESIGN SYSTEM — Modal Global ========== */
+    :root {
+        --accent-teal:   #14b8a6;
+        --accent-orange: #c2410c;
+        --accent-gold:   #b2935c;
+        --accent-white:  #ffffff;
+        --primary-deep:  #050b18;
+    }
+
+    /* Glass Card */
+    .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Section Label */
+    .section-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--accent-gold);
+        font-weight: 900;
+        margin-bottom: 12px;
+        display: block;
+    }
+
+    /* Premium Button */
+    .btn-premium {
+        background: linear-gradient(135deg, var(--accent-gold) 0%, #8e7345 100%);
+        color: #050b18;
+        padding: 16px 36px;
+        border-radius: 100px;
+        font-weight: 800;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: inline-block;
+        box-shadow: 0 10px 25px -5px rgba(178, 147, 92, 0.3);
+        font-family: 'Outfit', sans-serif;
+        text-align: center;
+        cursor: pointer;
+        border: none;
+    }
+
+    .btn-premium:hover {
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 20px 25px -5px rgba(13, 148, 136, 0.4);
+        background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+        color: #ffffff;
+    }
+
+    /* Keyboard Accessibility */
+    a:focus-visible,
+    button:focus-visible {
+        outline: 3px solid var(--accent-orange) !important;
+        outline-offset: 4px !important;
+    }
+
     /* Modal Styles */
     #caicarasModal {
         display: none;
@@ -46,6 +109,7 @@ $remaining = $limit - $count;
         border-radius: 24px;
         scrollbar-width: thin;
         scrollbar-color: #b2935c transparent;
+        padding-bottom: 24px;
     }
     
     .modal-container::-webkit-scrollbar { width: 4px; }
@@ -151,7 +215,7 @@ $remaining = $limit - $count;
                         <input type="number" id="inputAge" name="age" min="14" max="24" required class="input-premium placeholder:text-white/50" placeholder="Ex: 17">
                     </div>
                 </div>
-                <button type="button" onclick="nextStep(1)" class="btn-premium w-full mt-8">Continuar</button>
+                <button type="button" onclick="nextStep(1)" class="btn-premium w-full mt-8" aria-label="Continuar para o passo 2 de 3">Continuar</button>
             </div>
 
             <!-- Passo 2 -->
@@ -191,8 +255,8 @@ $remaining = $limit - $count;
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-4 mt-8">
-                    <button type="button" onclick="prevStep(2)" class="btn-premium bg-slate-900 border border-white/10 hover:bg-slate-800">Voltar</button>
-                    <button type="button" onclick="nextStep(2)" class="btn-premium">Continuar</button>
+                    <button type="button" onclick="prevStep(2)" class="btn-premium bg-slate-900 border border-white/10 hover:bg-slate-800" aria-label="Voltar para o passo 1 de 3">Voltar</button>
+                    <button type="button" onclick="nextStep(2)" class="btn-premium" aria-label="Continuar para o passo final de inscrição">Continuar</button>
                 </div>
             </div>
 
@@ -222,30 +286,30 @@ $remaining = $limit - $count;
                     </label>
                 </div>
                 <div class="grid grid-cols-2 gap-4 mt-8">
-                    <button type="button" onclick="prevStep(3)" class="btn-premium bg-slate-900 border border-white/10 hover:bg-slate-800">Voltar</button>
-                    <button type="submit" id="submitBtn" class="btn-premium">Enviar Inscrição</button>
+                    <button type="button" onclick="prevStep(3)" class="btn-premium bg-slate-900 border border-white/10 hover:bg-slate-800" aria-label="Voltar para o passo 2 de 3">Voltar</button>
+                    <button type="submit" id="submitBtn" class="btn-premium" aria-label="Enviar pré-inscrição no programa Caiçaras do Futuro">Enviar Inscrição</button>
                 </div>
             </div>
         </form>
         <?php else : ?>
         <!-- Tela de Lista de Espera -->
-        <div id="waitListContent" class="modal-step active p-6 md:p-10 text-center">
-            <div class="mb-6">
+        <div id="waitListContent" class="modal-step active p-4 md:p-6 text-center">
+            <div class="mb-3">
                 <span class="inline-block px-4 py-1 rounded-full bg-accent-orange text-white text-xs font-bold uppercase tracking-wider mb-4 shadow-lg shadow-accent-orange/20">
                     <?php echo $current_batch; ?>ª Turma Completa!
                 </span>
-                <h3 class="text-3xl font-bold text-white mb-4">Vagas em processamento</h3>
+                <h3 class="text-2xl font-bold text-white mb-2">Vagas em processamento</h3>
                 <p class="text-slate-200 text-sm leading-relaxed mb-6 font-medium">
                     A <?php echo $current_batch; ?>ª Turma está fechada. Deixe seu contato para a próxima!
                 </p>
             </div>
-            <div class="bg-white/5 border border-white/20 rounded-3xl p-6 mb-8">
-                <p class="text-white font-bold mb-6 text-lg">Quer ser avisado no zap quando a <?php echo $current_batch + 1; ?>ª Turma abrir?</p>
+            <div class="bg-white/5 border border-white/20 rounded-3xl p-4 mb-2">
+                <p class="text-white font-bold mb-4 text-base">Quer ser avisado no zap quando a <?php echo $current_batch + 1; ?>ª Turma abrir?</p>
                 <form id="waitListForm" class="space-y-4">
                     <?php wp_nonce_field('caicaras_nonce', 'wait_nonce_field'); ?>
                     <input type="text" id="wait_name" required class="input-premium text-center border-white/20 text-white placeholder:text-white/40" placeholder="Seu Nome Completo">
                     <input type="tel" id="wait_whatsapp" required class="input-premium text-center border-white/20 text-white placeholder:text-white/40" placeholder="Seu WhatsApp">
-                    <button type="button" id="waitBtn" onclick="submitWaitlist()" class="btn-premium w-full text-lg">Entrar na lista de avisos</button>
+                    <button type="button" id="waitBtn" onclick="submitWaitlist()" class="btn-premium w-full text-lg" aria-label="Entrar na lista de avisos para a próxima turma">Entrar na lista de avisos</button>
                 </form>
                 <div id="waitSuccessArea" class="hidden py-8 animate-in fade-in zoom-in duration-500">
                     <div class="w-16 h-16 bg-accent-gold/20 text-accent-gold rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">✓</div>
@@ -261,7 +325,7 @@ $remaining = $limit - $count;
             <div class="w-20 h-20 bg-white/10 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">✅</div>
             <h3 class="text-3xl font-bold text-white mb-4">Pré-Inscrição Realizada!</h3>
             <p class="text-slate-400 mb-8 max-w-xs mx-auto">Sua vaga está sendo processada. Fique de olho no WhatsApp.</p>
-            <a href="https://wa.me/5513996450062" target="_blank" class="btn-premium">Falar no WhatsApp</a>
+            <a href="https://wa.me/5513996450062" target="_blank" rel="noopener noreferrer" class="btn-premium" aria-label="Falar com o Instituto Caiçara pelo WhatsApp (abre em nova aba)">Falar no WhatsApp</a>
         </div>
     </div>
 </div>
@@ -272,7 +336,7 @@ $remaining = $limit - $count;
         <div id="waitAlertIcon" class="w-20 h-20 flex items-center justify-center mx-auto mb-6 text-4xl border-2">!</div>
         <h3 id="waitAlertTitle" class="text-3xl font-extrabold text-white mb-4 tracking-tight">Aviso</h3>
         <p id="waitAlertMsg" class="font-bold text-xl text-white mb-8"></p>
-        <button type="button" onclick="closeWaitAlertModal()" class="btn-premium w-full text-xl py-5 shadow-2xl hover:scale-110 active:scale-95 transition-all">Entendido!</button>
+        <button type="button" onclick="closeWaitAlertModal()" class="btn-premium w-full text-xl py-5 shadow-2xl hover:scale-110 active:scale-95 transition-all" aria-label="Fechar aviso e continuar">Entendido!</button>
     </div>
 </div>
 
