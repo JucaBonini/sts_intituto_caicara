@@ -179,7 +179,7 @@ get_header(); ?>
                 </div>
                 <div class="hidden lg:block relative h-[450px]">
                     <div class="w-full h-full rounded-[4rem] shadow-2xl relative overflow-hidden group border border-gray-100">
-                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eca-digital.png" alt="Proteção ECA Digital" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eca-digital.webp" alt="Proteção ECA Digital" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
                          <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
                          <div class="absolute bottom-12 left-12 right-12 text-white">
                              <h4 class="text-2xl font-black italic mb-2 tracking-tighter">O ICDDH está ON.</h4>
