@@ -483,7 +483,7 @@ add_filter( 'get_avatar', 'icddh_custom_avatar_filter', 10, 5 );
 
 function icddh_render_dashboard() {
     global $wpdb;
-    $table_name = $wpdb->prefix . 'pre_inscricoes';
+    $table_name = $wpdb->prefix . 'caicaras_pre_inscricao';
     $tab = isset($_GET['tab']) ? $_GET['tab'] : 'geral';
 
     // Handle Permissions Save
@@ -495,7 +495,7 @@ function icddh_render_dashboard() {
 
     // Stats
     $total_inscritos = $wpdb->get_var("SELECT COUNT(*) FROM $table_name");
-    $hoje = $wpdb->get_var("SELECT COUNT(*) FROM $table_name WHERE created_at >= CURDATE()");
+    $hoje = $wpdb->get_var("SELECT COUNT(*) FROM $table_name WHERE DATE(time) = CURDATE()");
     
     ?>
     <div class="wrap icddh-dashboard">
