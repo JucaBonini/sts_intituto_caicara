@@ -9,7 +9,7 @@
     .banner-caicaras-home {
         position: relative;
         padding: 80px 0;
-        background: url('<?php echo get_template_directory_uri(); ?>/assets/images/fundo-banner-ca.webp') no-repeat center center;
+        background: url('<?php echo get_template_directory_uri(); ?>/assets/images/fundo-banner-caicara.webp') no-repeat center center;
         background-size: cover;
         overflow: hidden;
         color: white;
