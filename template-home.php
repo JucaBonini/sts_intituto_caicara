@@ -42,6 +42,8 @@ get_header(); ?>
         </div>
     </section>
 
+    <?php get_template_part('template-parts/banner-caicaras-home'); ?>
+
     <!-- ========== SOBRE / INSTITUTO ========== -->
     <section id="sobre" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-5 lg:px-8">
