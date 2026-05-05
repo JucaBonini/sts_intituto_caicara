@@ -54,7 +54,7 @@ get_header(); ?>
         display: flex;
         align-items: center;
         justify-content: center;
-        background: url('<?php echo get_template_directory_uri(); ?>/assets/images/hero-caicaras.png') no-repeat center center;
+        background: url('<?php echo get_template_directory_uri(); ?>/assets/images/hero-caicaras.webp') no-repeat center center;
         background-size: cover;
         padding-top: 50px;
     }
