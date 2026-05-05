@@ -449,7 +449,7 @@ get_header(); ?>
                 <div class="relative reveal lg:pl-10 mt-8 lg:mt-0">
                     <!-- Premium Image Frame -->
                     <div class="relative z-10 rounded-[2rem] overflow-hidden border border-white/20 shadow-2xl md:skew-x-1 hover:skew-x-0 transition-transform duration-700">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/youth-education.png" alt="Educação Portuária" class="w-full object-cover">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/youth-education.webp" alt="Educação Portuária" class="w-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
                     </div>
                     
