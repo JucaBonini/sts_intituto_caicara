@@ -1303,6 +1303,7 @@ function ic_caicaras_settings_page() {
         <table class="wp-list-table widefat fixed striped">
             <thead>
                 <tr>
+                    <th style="width: 40px;">#</th>
                     <th>Data</th>
                     <th>Nome</th>
                     <th>Zap</th>
@@ -1310,8 +1311,9 @@ function ic_caicaras_settings_page() {
                 </tr>
             </thead>
             <tbody>
-                <?php if ($waitlist) : foreach ($waitlist as $wait) : ?>
+                <?php if ($waitlist) : $pos = 1; foreach ($waitlist as $wait) : ?>
                 <tr>
+                    <td><strong><?php echo $pos++; ?></strong></td>
                     <td><?php echo date('d/m H:i', strtotime($wait->time)); ?></td>
                     <td><?php echo $wait->name; ?></td>
                     <td><?php echo $wait->whatsapp; ?></td>
@@ -1320,7 +1322,7 @@ function ic_caicaras_settings_page() {
                     </td>
                 </tr>
                 <?php endforeach; else : ?>
-                <tr><td colspan="4">Ninguém na lista de espera.</td></tr>
+                <tr><td colspan="5">Ninguém na lista de espera.</td></tr>
                 <?php endif; ?>
             </tbody>
         </table>
