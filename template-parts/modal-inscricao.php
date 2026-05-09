@@ -292,7 +292,7 @@ $remaining = $limit - $count;
             </div>
         </form>
         <?php else : ?>
-        <!-- Tela de Lista de Espera -->
+        <!-- Tela de Lista de Aviso -->
         <div id="waitListContent" class="modal-step active p-4 md:p-6 text-center">
             <div class="mb-3">
                 <span class="inline-block px-4 py-1 rounded-full bg-accent-orange text-white text-xs font-bold uppercase tracking-wider mb-4 shadow-lg shadow-accent-orange/20">

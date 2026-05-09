@@ -1097,8 +1097,8 @@ function ic_handle_waitlist() {
     if ( $result ) {
         // Notificar Instituto
         $to = 'direitoscaicara@gmail.com';
-        $subject = "Lista de Espera: $name";
-        $body = "Um novo jovem se cadastrou na lista de espera!\n\nNome: $name\nWhatsApp: $whatsapp\nInteressado na próxima turma.";
+        $subject = "Lista de Aviso: $name";
+        $body = "Um novo jovem se cadastrou na lista de aviso em primeira mão!\n\nNome: $name\nWhatsApp: $whatsapp\nInteressado na próxima turma.";
         wp_mail( $to, $subject, $body );
 
         wp_send_json_success( 'Você foi adicionado à lista de avisos!' );
@@ -1299,7 +1299,7 @@ function ic_caicaras_settings_page() {
             </tbody>
         </table>
 
-        <h2 style="margin-top: 40px;">Lista de Espera</h2>
+        <h2 style="margin-top: 40px;">Lista de Aviso em primeira mão</h2>
         <table class="wp-list-table widefat fixed striped">
             <thead>
                 <tr>
@@ -1322,7 +1322,7 @@ function ic_caicaras_settings_page() {
                     </td>
                 </tr>
                 <?php endforeach; else : ?>
-                <tr><td colspan="5">Ninguém na lista de espera.</td></tr>
+                <tr><td colspan="5">Ninguém na lista de aviso ainda.</td></tr>
                 <?php endif; ?>
             </tbody>
         </table>
