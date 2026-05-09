@@ -298,10 +298,8 @@ $remaining = $limit - $count;
                 <span class="inline-block px-4 py-1 rounded-full bg-accent-orange text-white text-xs font-bold uppercase tracking-wider mb-4 shadow-lg shadow-accent-orange/20">
                     <?php echo $current_batch; ?>ª Turma Completa!
                 </span>
-                <h3 class="text-2xl font-bold text-white mb-2">Vagas em processamento</h3>
-                <p class="text-slate-200 text-sm leading-relaxed mb-6 font-medium">
-                    A <?php echo $current_batch; ?>ª Turma está fechada. Deixe seu contato para a próxima!
-                </p>
+                <h3 class="text-2xl font-bold text-white mb-2"><?php echo $current_batch; ?>ª Turma encerrada</h3>
+
             </div>
             <div class="bg-white/5 border border-white/20 rounded-3xl p-4 mb-2">
                 <p class="text-white font-bold mb-4 text-base">Quer ser avisado no zap quando a <?php echo $current_batch + 1; ?>ª Turma abrir?</p>

@@ -1147,6 +1147,7 @@ function ic_caicaras_settings_page() {
         $wpdb->update($table_reg, array(
             'name' => sanitize_text_field($_POST['name']),
             'whatsapp' => sanitize_text_field($_POST['whatsapp']),
+            'age' => intval($_POST['age']),
             'city' => sanitize_text_field($_POST['city']),
             'neighborhood' => sanitize_text_field($_POST['neighborhood'])
         ), array('id' => $id));
@@ -1216,6 +1217,7 @@ function ic_caicaras_settings_page() {
                     <table class="form-table">
                         <tr><th>Nome</th><td><input type="text" name="name" value="<?php echo $edit_reg->name; ?>" class="regular-text"></td></tr>
                         <tr><th>Zap</th><td><input type="text" name="whatsapp" value="<?php echo $edit_reg->whatsapp; ?>" class="regular-text"></td></tr>
+                        <tr><th>Idade</th><td><input type="number" name="age" value="<?php echo $edit_reg->age; ?>" class="regular-text"></td></tr>
                         <tr><th>Cidade</th><td><input type="text" name="city" value="<?php echo $edit_reg->city; ?>" class="regular-text"></td></tr>
                         <tr><th>Bairro</th><td><input type="text" name="neighborhood" value="<?php echo $edit_reg->neighborhood; ?>" class="regular-text"></td></tr>
                     </table>
@@ -1273,6 +1275,7 @@ function ic_caicaras_settings_page() {
                     <th>Data</th>
                     <th>Nome</th>
                     <th>Zap</th>
+                    <th>Idade</th>
                     <th>Localização</th>
                     <th>Turma</th>
                     <th>Ações</th>
@@ -1285,6 +1288,7 @@ function ic_caicaras_settings_page() {
                     <td><?php echo date('d/m H:i', strtotime($reg->time)); ?></td>
                     <td><strong><?php echo $reg->name; ?></strong></td>
                     <td><a href="https://wa.me/55<?php echo preg_replace('/\D/', '', $reg->whatsapp); ?>" target="_blank"><?php echo $reg->whatsapp; ?></a></td>
+                    <td><?php echo $reg->age; ?></td>
                     <td><?php echo $reg->city; ?> - <?php echo $reg->neighborhood; ?></td>
                     <td><span class="badge"><?php echo $reg->batch; ?>ª</span></td>
                     <td>
