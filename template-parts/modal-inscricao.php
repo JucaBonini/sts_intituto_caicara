@@ -315,7 +315,7 @@ $remaining = $limit - $count;
                     <button type="button" id="waitBtn" onclick="submitWaitlist()" class="btn-premium w-full text-lg py-5 shadow-2xl" aria-label="Entrar na lista de avisos para a próxima turma">Quero ser avisado(a) no Zap!</button>
                 </form>
                 
-                <p class="mt-6 text-[10px] text-white/40 italic leading-relaxed">
+                <p class="mt-6 text-[10px] text-white/80 italic leading-relaxed">
                     * Esta é uma lista de aviso em primeira mão. Ela não garante a sua vaga, mas te coloca na frente de todo mundo assim que as inscrições da <?php echo $current_batch + 1; ?>ª Turma abrirem!
                 </p>
                 <div id="waitSuccessArea" class="hidden py-8 animate-in fade-in zoom-in duration-500">
