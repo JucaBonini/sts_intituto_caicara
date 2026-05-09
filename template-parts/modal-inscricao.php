@@ -283,9 +283,7 @@ $remaining = $limit - $count;
                         <span class="text-xs text-white leading-relaxed group-hover:text-white transition-colors font-medium">
                             Estou ciente de que esta é uma **pré-inscrição** para a **<?php echo $current_batch; ?>ª Turma**. Caso o número de inscritos supere as 15 vagas, o **Instituto Caiçara** realizará uma seleção técnica baseada em critérios socioeconômicos. O preenchimento deste formulário não garante a vaga imediata.
                         </span>
-                    </label>
-                </div>
-                <div class="grid grid-cols-2 gap-4 mt-8">
+                       <div class="grid grid-cols-2 gap-4 mt-8">
                     <button type="button" onclick="prevStep(3)" class="btn-premium bg-slate-900 border border-white/10 hover:bg-slate-800" aria-label="Voltar para o passo 2 de 3">Voltar</button>
                     <button type="submit" id="submitBtn" class="btn-premium" aria-label="Enviar pré-inscrição no programa Caiçaras do Futuro">Enviar Inscrição</button>
                 </div>
@@ -294,24 +292,36 @@ $remaining = $limit - $count;
         <?php else : ?>
         <!-- Tela de Lista de Aviso -->
         <div id="waitListContent" class="modal-step active p-4 md:p-6 text-center">
-            <div class="mb-3">
-
-                <h3 class="text-2xl font-bold text-white mb-2"><?php echo $current_batch; ?>ª Turma encerrada</h3>
-
+            <div class="mb-6">
+                <h3 class="text-3xl font-extrabold text-white mb-2 italic">Poxa, que pena! 🌊</h3>
+                <p class="text-slate-300 text-sm font-medium">
+                    As vagas para a <span class="text-accent-teal font-bold"><?php echo $current_batch; ?>ª Turma</span> já se esgotaram...
+                </p>
             </div>
-            <div class="bg-white/5 border border-white/20 rounded-3xl p-4 mb-2">
-                <p class="text-white font-bold mb-4 text-base">Quer ser avisado no zap quando a <?php echo $current_batch + 1; ?>ª Turma abrir?</p>
+
+            <div class="bg-white/5 border border-white/10 rounded-[2rem] p-6 mb-4 backdrop-blur-sm shadow-inner">
+                <p class="text-white font-bold mb-6 text-lg leading-tight">
+                    Mas relaxa! Quer uma chance na <br><span class="text-accent-gold text-2xl uppercase tracking-tighter"><?php echo $current_batch + 1; ?>ª Turma?</span>
+                </p>
+                
+                <p class="text-[11px] text-white/60 mb-6 uppercase tracking-widest font-bold">
+                    Entre para nossa <span class="text-white">Lista de Aviso VIP</span>
+                </p>
+
                 <form id="waitListForm" class="space-y-4">
                     <?php wp_nonce_field('caicaras_nonce', 'wait_nonce_field'); ?>
-                    <input type="text" id="wait_name" required class="input-premium text-center border-white/20 text-white placeholder:text-white/40" placeholder="Seu Nome Completo">
-                    <input type="tel" id="wait_whatsapp" required class="input-premium text-center border-white/20 text-white placeholder:text-white/40" placeholder="Seu WhatsApp">
-                    <button type="button" id="waitBtn" onclick="submitWaitlist()" class="btn-premium w-full text-lg" aria-label="Entrar na lista de avisos para a próxima turma">Entrar na lista de avisos</button>
+                    <input type="text" id="wait_name" required class="input-premium text-center border-white/10 text-white placeholder:text-white/30" placeholder="Seu Nome Completo">
+                    <input type="tel" id="wait_whatsapp" required class="input-premium text-center border-white/10 text-white placeholder:text-white/30" placeholder="Seu WhatsApp">
+                    <button type="button" id="waitBtn" onclick="submitWaitlist()" class="btn-premium w-full text-lg py-5 shadow-2xl" aria-label="Entrar na lista de avisos para a próxima turma">Quero ser avisado(a) no Zap!</button>
                 </form>
+                
+                <p class="mt-6 text-[10px] text-white/40 italic leading-relaxed">
+                    * Esta é uma lista de aviso em primeira mão. Ela não garante a sua vaga, mas te coloca na frente de todo mundo assim que as inscrições da <?php echo $current_batch + 1; ?>ª Turma abrirem!
+                </p>
                 <div id="waitSuccessArea" class="hidden py-8 animate-in fade-in zoom-in duration-500">
                     <div class="w-16 h-16 bg-accent-gold/20 text-accent-gold rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">✓</div>
                     <h4 class="text-xl font-bold text-white mb-2 text-center">Cadastro Realizado!</h4>
                     <p class="text-sm text-slate-300 text-center mb-6">Você receberá o link de inscrição em primeira mão assim que as vagas abrirem.</p>
-                </div>
             </div>
         </div>
         <?php endif; ?>
